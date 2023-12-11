@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfiguration } from "./Store/homeSlice";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  useSearchParams,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -17,10 +12,18 @@ import Explore from "./Pages/Explore/Explore";
 import PageNotFound from "./Pages/404/PageNotFound";
 import { fetchDataFromApi } from "./utils/api";
 
+const AppLayout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
 const App = () => {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
-  console.log(url);
   useEffect(() => {
     fetchApiConfigurations();
   }, []);
@@ -37,15 +40,15 @@ const App = () => {
   };
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:mediaType/:id" element={<Details />} />
-        <Route path="/search/:query" element={<SearchResult />} />
-        <Route path="/explore/:mediaType" element={<Explore />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/:mediaType/:id" element={<Details />} />
+          <Route path="/search/:query" element={<SearchResult />} />
+          <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
