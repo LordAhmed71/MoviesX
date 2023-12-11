@@ -1,8 +1,12 @@
 import { useEffect } from "react";
-import { fetch } from "./Utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfiguration } from "./Store/homeSlice";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useSearchParams,
+} from "react-router-dom";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -11,18 +15,26 @@ import Details from "./Pages/Details/Details";
 import SearchResult from "./Pages/SearchResult/SearchResult";
 import Explore from "./Pages/Explore/Explore";
 import PageNotFound from "./Pages/404/PageNotFound";
+import { fetchDataFromApi } from "./utils/api";
 
 const App = () => {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
+  console.log(url);
   useEffect(() => {
-    test();
+    fetchApiConfigurations();
   }, []);
 
-  const test = () => {
-    fetch("/movie/popular").then((res) => dispatch(getApiConfiguration(res)));
+  const fetchApiConfigurations = () => {
+    fetchDataFromApi("/configuration").then((res) => {
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      };
+      dispatch(getApiConfiguration(url));
+    });
   };
-
   return (
     <BrowserRouter>
       <Routes>
