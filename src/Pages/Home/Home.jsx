@@ -1,5 +1,6 @@
 import React from "react";
 import HeroBanner from "./HeroBanner/HeroBanner";
+import Header from "../../Components/Header/Header";
 
 const Home = () => {
   return (
