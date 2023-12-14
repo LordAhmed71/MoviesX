@@ -97,7 +97,7 @@ const Header = () => {
             <form className="searchInput" onSubmit={queryHandleSubmit}>
               <input
                 type="text"
-                placeholder="Search for a movie or tv show.... "
+                placeholder="Search for a movie or tv show...."
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
               />
