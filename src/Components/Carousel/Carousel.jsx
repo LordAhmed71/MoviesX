@@ -1,20 +1,22 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
-
-import "./Carousel.scss";
 import { formatDate } from "../../Utils/helpers";
+
 import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../Genres/Genres";
 
-const Carousel = ({ data, loading }) => {
+import "./Carousel.scss";
+
+const Carousel = ({ data, loading, endPoint }) => {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
@@ -65,7 +67,9 @@ const Carousel = ({ data, loading }) => {
                 <div
                   className="carouselItem"
                   key={movie.id}
-                  onClick={() => navigate(`/${movie.media_type}/${movie.id}`)}
+                  onClick={() =>
+                    navigate(`/${movie.media_type || endPoint}/${movie.id}`)
+                  }
                 >
                   <div className="posterBlock">
                     <Img src={posterUrl} />
