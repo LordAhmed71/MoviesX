@@ -7,8 +7,7 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 
 const MoviesSection = ({ movieData }) => {
   const { filterBy, endpoints, movieList, title } = movieData;
-  const [endpoint, setEndpoint] = useState(endpoints?.[0]);
-
+  const [endpoint, setEndpoint] = useState(endpoints[0]);
   const { data, loading } = useFetch(
     movieList === "trending"
       ? `/${movieList}/movie/${endpoint}`

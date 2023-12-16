@@ -1,9 +1,12 @@
-import './Details.scss'
+import "./Details.scss";
+import DetailsBanner from "./../../Components/DetailsBanner/DetailsBanner";
 
 const Details = () => {
   return (
-    <div>Details</div>
-  )
-}
+    <div>
+      <DetailsBanner />
+    </div>
+  );
+};
 
-export default Details
+export default Details;
