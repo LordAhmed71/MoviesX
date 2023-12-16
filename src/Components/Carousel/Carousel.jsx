@@ -12,6 +12,7 @@ import Img from "../lazyLoadImage/Img";
 import "./Carousel.scss";
 import { formatDate } from "../../Utils/helpers";
 import CircleRating from "../CircleRating/CircleRating";
+import Genres from "../Genres/Genres";
 
 const Carousel = ({ data, loading }) => {
   const carouselContainer = useRef();
@@ -55,6 +56,7 @@ const Carousel = ({ data, loading }) => {
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     <CircleRating rating={movie.vote_average.toFixed(1)} />
+                    <Genres data={movie.genre_ids.slice(0, 2)} />
                   </div>
                   <div className="textBlock">
                     <span className="title">{movie?.title || movie?.name}</span>
