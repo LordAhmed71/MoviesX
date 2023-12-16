@@ -1,4 +1,4 @@
-import HeroBanner from "./HeroBanner/HeroBanner";
+import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 import MoviesList from "../../Components/MoviesList/MoviesList";
 
 import "./Home.scss";
