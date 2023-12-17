@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getApiConfiguration, getGenres } from "./Store/homeSlice";
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import { getApiConfiguration, getGenres } from "./Store/homeSlice";
+import { fetchDataFromApi } from "./utils/api";
 
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -10,7 +11,6 @@ import Details from "./Pages/Details/Details";
 import SearchResult from "./Pages/SearchResult/SearchResult";
 import Explore from "./Pages/Explore/Explore";
 import PageNotFound from "./Pages/404/PageNotFound";
-import { fetchDataFromApi } from "./utils/api";
 
 const AppLayout = () => {
   return (
