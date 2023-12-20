@@ -1,13 +1,14 @@
-#Moviex
+# Moviex
+
 Moviex is a web application developed using React and the TMDB API. It serves as a platform for users to explore movies and TV shows, providing detailed information about each movie, including recommendations.
 
-Project Overview
+## Project Overview
 Moviex allows users to browse through a vast collection of movies and TV shows, displaying essential details such as title, synopsis, release date, and ratings. Users can delve deeper into individual movie details and explore recommendations for similar content.
 
 Live Demo
 Check out the live version of Moviex here.
 
-Technologies Used
+## Technologies Used
 React
 TMDB API
 Redux Toolkit
@@ -20,13 +21,14 @@ React Player
 React Infinite Scroll Component
 React Select
 Sass
-Getting Started
+
+## Getting Started
 To run this project locally, follow these steps:
 
 Clone this repository.
 Install dependencies using npm install.
 Start the development server using npm run dev.
-Open http://localhost:3000 in your browser to view the application.
+Open http://localhost:5173 in your browser to view the application.
 Available Scripts
 npm run dev: Runs the app in development mode.
 npm run build: Builds the app for production.
